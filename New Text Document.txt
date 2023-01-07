@@ -1,0 +1,42 @@
+class Train:
+    Name='Rajdhani Express'
+    def __init__(self,status,fare,seats,food,):
+        self.status=status
+        self.fare=fare
+        self.seats=seats
+        self.food=food
+
+    def statusInfo(self):
+        print(f'The name of the train is {self.Name}')
+        print(f'The seats available are {len(self.seats)}')
+        print(f'The status of the train is {self.status}')
+    
+    def fareInfo(self):
+        print(f'The amount to book a seat is: Rs {self.fare}')
+
+    def bookseats(self):
+        if len(self.seats) > 0:
+            print(f'The ticket is booked! Your seat number is {len(self.seats)}')
+            self.seats.pop()
+        else:
+            print('Sorry! The seats are full')
+    
+    def foodInfo(self):
+        if (self.food == 'V'):
+            print('Thanks of Ordering Veg food!!')
+        elif(self.food == 'N'):
+            print('Thanks for ordering Non-Veg food!!')
+        else:
+            print('Wrongly Entered')
+        
+    def cancelTicket(self,seatNO):
+        self.seats.append(seatNO)
+        print(f'The {seatNO} has been cancelled successfully')
+
+
+Rajdhani=Train('OnTime','800',[1,2,3,4,5,6,7,8,9,10,11],input('Enter your food choice!! V for veg and N for non-veg : '))
+Rajdhani.statusInfo()
+Rajdhani.fareInfo()
+Rajdhani.bookseats()
+Rajdhani.foodInfo()
+Rajdhani.cancelTicket(10)
